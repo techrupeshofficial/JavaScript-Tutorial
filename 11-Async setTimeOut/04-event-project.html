@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+    <style>
+      .table {
+        border: 2px solid red;
+      }
+    </style>
+  </head>
+  <body style="background-color: black; color: white">
+    <div class="project">
+      <div class="parentKey">
+        <div class="key"><h1>Enter any key</h1></div>
+      </div>
+    </div>
+
+    <script>
+      const val = document.querySelector(".parentKey");
+      window.addEventListener("keydown", function (e) {
+        val.innerHTML = ` 
+        
+        <div class='color'>
+    <table>
+  <tr>
+    <th> <h1>   key        </h1> </th>
+    <th> <h1>   keyCode    </h1> </th>
+    <th> <h1>   code       </h1> </th>
+  </tr>
+  <tr>
+    <td> <h3>  ${e.key === " " ? "Space" : e.key}     </h3>  </td>
+    <td> <h3> ${e.keyCode}  </h3> </td>
+    <td> <h3>  ${e.code}    </h3> </td>
+  </tr>
+</table>     
+ </div>
+        
+        `;
+      });
+    </script>
+  </body>
+</html>

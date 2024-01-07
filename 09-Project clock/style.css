@@ -1,0 +1,14 @@
+h3{
+    text-align: center;
+    margin-top: 200px;
+}
+
+
+#displayTime{
+    height:  30px;
+    /* width: 50px; */
+    background: black;
+    color: white;
+    text-align: center;
+
+}

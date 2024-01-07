@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <button id="gray">Gray</button>
+    <button id="green">green</button>
+
+    <!-- 
+
+    <script>
+      /*
+    // we can access the value in function in function ,   not outer of the function
+    function outer() {
+      let username = "Rupesh";
+      function inner() {
+        console.log("Inner Function", username);
+      }
+      inner();
+
+      function innerTwo() {
+        console.log("Inner Two function ", username);
+      }
+      innerTwo();
+    }
+    outer();
+    console.log("Access Name To Outer Function ", username);
+
+
+
+    */
+
+      function outer() {
+        let username = "Rupesh";
+        function inner() {
+          let password = "abc123";
+          console.log("Inner Function", username);
+        }
+        inner();
+
+        function innerTwo() {
+          console.log("Inner Two function ", username);
+          console.log("Inner function password accing innerTwo", password); // here we can not access function value from children to children
+        }
+        innerTwo();
+      }
+      outer();
+      console.log("Access Name To Outer Function ", username);
+    </script> -->
+
+    <script>
+      //   function outer() {
+      //     let username = "Rupesh";
+      //     console.log(" this is outer function ");
+      //     function displayName() {
+      //       console.log(username);
+      //     }
+      //     return displayName;
+      //   }
+      //   const demo = outer();
+      //   demo();
+      // *****************************************************************************************
+      //   document.querySelector("#gray").onclick = function () {
+      //     document.body.style.backgroundColor = "gray";
+      //   };
+
+      //   document.querySelector("#green").onclick = function () {
+      //     document.body.style.backgroundColor = "green";
+      //   };
+      // *****************************************************************************************
+
+      function clickHandler(color) {
+        // document.body.style.backgroundColor = `${color}`;
+        return function () {
+          document.body.style.backgroundColor = `${color}`;
+        };
+      }
+      document.querySelector("#gray").onclick = clickHandler("gray");
+      document.querySelector("#green").onclick = clickHandler("green");
+    </script>
+  </body>
+</html>

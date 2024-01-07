@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <ul class="language">
+      <li>JavaScript</li>
+    </ul>
+  </body>
+
+  <script>
+    const li = document.createElement("li");
+    li.innerHTML = "C "; // here will not add multipal values that's why we are using function
+    li.innerHTML = "C++ ";
+    document.querySelector("ul").appendChild(li);
+    // ************
+
+    const addLanguage = (langName) => {
+      const li = document.createElement("li");
+      li.innerHTML = langName;
+      document.querySelector(".language").appendChild(li); // // here will not traverse all DOM tree
+    };
+    addLanguage("Python");
+    addLanguage("Java");
+
+    //********************************************************************
+
+    function addOptimize(langName) {
+      // this is optimize me to creating element
+      const li = document.createElement("li");
+      li.appendChild(document.createTextNode(langName)); // here will not traverse all DOM tree, best for big project code
+      document.querySelector(".language").appendChild(li);
+    }
+    addOptimize("C#");
+    addOptimize("Bootstrap");
+
+    // ********************************************************************************************
+    // edit
+    const secondlang = document.querySelector("li:nth-child(2)");
+    // secondlang.innerHTML ="mojo"
+    const newLi = document.createElement("li");
+    newLi.textContent = "mojo";
+    secondlang.replaceWith(newLi);
+
+    //second Example for eadit
+    const firstlang = document.querySelector("li:first-child");
+    firstlang.outerHTML = "<li> JavaScript + React </li>";
+
+    // remove
+
+    const lastlang = document.querySelector("li:last-child");
+    lastlang.remove(); // here will remove last element bootstrap
+  </script>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Click to Chnage BackGround Color</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <script>
+      //   const myFunc = () => {
+      //     let hex = "0123456789ABCDEF";
+      //     let color = "#";
+      //     for (let i = 0; i < 6; i++) {
+      //       color += hex[Math.floor(Math.random() * 16)];
+      //     }
+      //     return color;
+      //   };
+      //   console.log(myFunc());
+      //   const startChangeColor = () => {
+      //     console.log(" Start Background Change ");
+      //     document.body.style.backgroundColor = myFunc();
+      //   };
+
+      //   const stopChangeColor = () => {};
+
+      //   document
+      //     .querySelector("#start")
+      //     .addEventListener("click", startChangeColor);
+      //   document
+      //     .querySelector("#stop")
+      //     .addEventListener("click", stopChangeColor);
+      //*************************************************************************************************************
+      //   const myFunc = () => {
+      //     let hex = "0123456789ABCDEF";
+      //     let color = "#";
+      //     for (let i = 0; i < 6; i++) {
+      //       color += hex[Math.floor(Math.random() * 16)];
+      //     }
+      //     return color;
+      //   };
+      //   let intervalColor; // you have to define global scope in intervalColor
+      //   console.log(myFunc());
+      //   const startChangeColor = () => {
+      //     console.log(" Start Background Change ");
+      //     let chnageBgColorFunc = () => {
+      //       document.body.style.backgroundColor = myFunc();
+      //     };
+
+      //     intervalColor = setInterval(chnageBgColorFunc, 1000); // this is taking function so you have to store chnageing color code in function
+      //   };
+
+      //   const stopChangeColor = () => {
+      //     clearInterval(intervalColor);
+      //   };
+
+      //   document
+      //     .querySelector("#start")
+      //     .addEventListener("click", startChangeColor);
+      //   document
+      //     .querySelector("#stop")
+      //     .addEventListener("click", stopChangeColor);
+
+      //***********************************************************************************************************
+
+      //   Clean Code
+      const myFunc = () => {
+        let hex = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += hex[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      };
+      let intervalColor; // you have to define global scope in intervalColor
+      const startChangeColor = () => {
+        let chnageBgColorFunc = () => {
+          document.body.style.backgroundColor = myFunc();
+        };
+        if (intervalColor == null) {
+          intervalColor = setInterval(chnageBgColorFunc, 1000); // this is taking function so you have to store chnageing color code in function
+        }
+      };
+
+      const stopChangeColor = () => {
+        clearInterval(intervalColor);
+        intervalColor = null;
+      };
+
+      document
+        .querySelector("#start")
+        .addEventListener("click", startChangeColor);
+      document
+        .querySelector("#stop")
+        .addEventListener("click", stopChangeColor);
+    </script>
+  </body>
+</html>
